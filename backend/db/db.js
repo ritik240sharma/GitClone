@@ -2,7 +2,7 @@ import pg from 'pg';
 import dotenv from 'dotenv'
 dotenv.config()
 const db=new pg.Client({
-    user: ,
+    user:process.env.PGUSER ,
     host: process.env.PGHOST,
     database: process.env.DATABASE,
     password:process.env.PGPASSWORD,

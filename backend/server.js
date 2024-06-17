@@ -9,9 +9,10 @@ import { auth_route } from './auth_router/auth_route.js';
 import { connection } from './db/db.js';
 import path from  'path'
 import "./passport/github_auth.js"
+dotenv.config()
 
 const option={
-    origin: 'http://localhost:3000',
+    origin: process.env.CLIENT_BASE_URL,
     method:["POST,GET,PUSH,HEAD,PATCH"],
     credentials: true,
 }

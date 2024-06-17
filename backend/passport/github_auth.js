@@ -17,7 +17,7 @@ passport.use(
     {
       clientID: process.env.GITHUB_CLIENTID,
       clientSecret: process.env.GITHUB_CLIENT_SECRET,
-      callbackURL: `http://localhost:${process.env.PORT}/api/auth/github/callback`,
+      callbackURL: `https://gitclone.onrender.com/api/auth/github/callback`,
     },
     async function (accessToken, refreshToken, profile, done) {
       const user = await db.query("select * from users where username=$1",[profile.username])

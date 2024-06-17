@@ -11,7 +11,7 @@ const ExplorePage = () => {
 	const exploreRepos = async (language) => {
 		Setloading(true)
 		try {
-			var data=await fetch(`http://localhost:4000/api/explore/${language}`)
+			var data=await fetch(`/api/explore/${language}`)
 			data = await data.json();
 			if(data.error)
 		    {

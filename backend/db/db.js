@@ -7,6 +7,9 @@ const db=new pg.Client({
     database: process.env.DATABASE,
     password:process.env.PGPASSWORD,
     port: process.env.PGPORT,
+    ssl: {
+        rejectUnauthorized: false // or provide certificate
+      }
 })
 
 async function connection()

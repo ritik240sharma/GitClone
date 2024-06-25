@@ -4,10 +4,11 @@ import { useAuthContext } from "../../Context/AuthContext";
 import Timestamp from "../../lib/timestamp";
 import { MdDelete } from "react-icons/md";
 import {toast} from 'react-hot-toast'
+import Spinner from "../../components/Spinner";
 
 function index() {
   const[users,Setusers]=useState(null)
-  const{authUser}=useAuthContext()
+  const{authUser,loading}=useAuthContext()
  
    async function call(username)
   {
@@ -67,7 +68,8 @@ function index() {
           <tbody>
 
           {
-            users?.map((x,index)=>{
+            loading?<Spinner/>:
+            (users?.map((x,index)=>{
                      return<tr key={x.name} 
                       className="bg-glass border-b">
                        <td className="w-4 p-4">
@@ -107,12 +109,8 @@ function index() {
                            <MdDelete size={26}  className="text-red-500  mx-2 active:text-black" onClick={()=>call(x.name)}/>
                           </div>
                        </td>
-
-                       
-                       
                   </tr>
-
-            })
+            }))
             }
           </tbody>
         </table>
